@@ -20,7 +20,8 @@ RUN git clone https://github.com/andresriancho/w3af.git && \
     /tmp/w3af_dependency_install.sh && \
     echo "#/bin/bash /n npm install -g retire@2.0.3 /n npm update -g retire" >> /tmp/node-normalization.sh && \
     chmod +x /tmp/node-normalization.sh && \
-    /tmp/node-normalization.sh
+    /tmp/node-normalization.sh && \
+    npm install -g api-spec-converter
 
 RUN chmod 775 /home/w3af && \ 
     chown -R 1001 /home/w3af && \
