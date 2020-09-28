@@ -6,7 +6,8 @@ RUN yum install git epel-release -y && \
     yum install npm libxml2-devel libxslt-devel openssl-devel python-devel python-pip gcc gcc-c++ expect -y && \  
     pip install --upgrade pip setuptools==44.0 && \
     pip install gitpython && \
-    mkdir /home/w3af
+    mkdir /home/w3af && \
+    mkdir /opt/w3af
 
 WORKDIR /home/w3af
 
@@ -23,10 +24,10 @@ RUN git clone https://github.com/andresriancho/w3af.git && \
     /tmp/node-normalization.sh && \
     npm install -g api-spec-converter
 
-RUN chmod 775 /home/w3af && \ 
-    chown -R 1001 /home/w3af && \
-    chmod -R "g+rwX" /home/w3af && \
-    chown -R 1001:root /home/w3af 
+RUN chmod 775 /home/w3af /opt/w3af && \ 
+    chown -R 1001 /home/w3af /opt/w3af && \
+    chmod -R "g+rwX" /home/w3af /opt/w3af && \
+    chown -R 1001:root /home/w3af /opt/w3af 
 
 USER 1001
 
